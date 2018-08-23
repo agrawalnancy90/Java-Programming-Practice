@@ -15,14 +15,12 @@ public class TwoSumSorted {
 	public static int[] twoSum(int[] numbers, int target) {
         for(int e=numbers.length - 1, s=0; e>s;){
             if(numbers[e] + numbers[s] > target){
-                s=0;
                 e--;
-                continue;
-            }
-            if(numbers[e] + numbers[s] == target){
+            } else if(numbers[e] + numbers[s] == target){
                 return new int[] {s+1, e+1};
+            } else {
+            	++s;
             }
-            ++s;
         }
         
         throw new IllegalArgumentException("No solution");
