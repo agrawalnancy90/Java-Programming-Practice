@@ -18,15 +18,10 @@ public class GuessNumber {
 	            
 	            if(res > 0){
 	                low = mid + 1;
-	            }
-	            
-	            if(res < 0){
+	            } else if(res < 0){
 	                high = mid - 1;
-	            }
-	            
-	            if(res == 0){
+	            } else
 	                return mid;
-	            }
 	        }
 	        return -1;
 	                
