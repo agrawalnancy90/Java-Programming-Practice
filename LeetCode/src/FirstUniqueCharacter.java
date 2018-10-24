@@ -8,9 +8,32 @@ public class FirstUniqueCharacter {
 		String s = "nancyagrawal";
 		System.out.println(firstUniqCharWithHashMapAndHashSet(s));
 		System.out.println(firstUniqCharWithHashMap(s));
+		System.out.println(firstUniqChar(s));
 		
 		
 	}
+	
+	/**
+	 * Only using string and array to store frequency.
+	 * Space complexity is higher.
+	 * @param s
+	 * @return
+	 */
+    public static int firstUniqChar(String s) {
+        if(s.isEmpty())
+            return -1;
+        int[] count = new int[256]; //for all characters
+        
+        for(int i=0; i<s.length(); i++){
+            ++count[s.charAt(i)];
+        }
+        
+        for(int i=0; i<s.length(); i++){
+            if(count[s.charAt(i)] == 1)
+                return i;
+        }
+        return -1;        
+    }
 	
 	/**
 	 * Using HashSet and HashMap
