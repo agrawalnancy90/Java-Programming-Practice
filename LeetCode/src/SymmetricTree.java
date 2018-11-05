@@ -29,12 +29,7 @@ public class SymmetricTree {
 	
 	
 	public static boolean isSymmetric(TreeNode root) {
-		
-		if(root == null || (root.left == null && root.right == null))
-			return true;
-		
-		return compare(root.left, root.right);
-	    
+		return compare(root, root);
 	}
 	
 	public static boolean compare(TreeNode lnode, TreeNode rnode) {
@@ -48,9 +43,7 @@ public class SymmetricTree {
 		if(count == 2)
 			return true;
 		
-		if(lnode.val != rnode.val)
-			return false;
-		return (compare(lnode.left, rnode.right) 
+		return (lnode.val == rnode.val && compare(lnode.left, rnode.right) 
                 && compare(lnode.right, rnode.left));
 	}
 	
